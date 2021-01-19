@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter22_app/BMIpage.dart';
 import 'package:flutter22_app/Bookpage.dart';
+import 'package:flutter22_app/Doctorpage.dart';
 
 class Homepage extends StatefulWidget{
   @override
@@ -19,76 +20,178 @@ class Homepagescreen extends State<Homepage>{
       appBar: AppBar(
         title: Text("Health Care"),
       ),
-      body: ListView(
-        children: <Widget>[
-          Container(
-            child: Text("Hello", style:TextStyle(fontWeight: FontWeight.bold,fontSize: 40),),),
-            Row(
-            children: <Widget>[
-              Container(
-               child: Text("How can we take care yourself ?", style:TextStyle(fontSize: 20),),),
-
-             ],
-            ),
-          Container(
-            child: Row(
-              children: <Widget>[
-                Container(
-                  child: new RaisedButton(
-                    child: Text("Find Doctor"),
-                    padding: const EdgeInsets.all(40),
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Bookpage(),),);
-                    },
-
-                  ),
-                  padding: const EdgeInsets.all(20),
+      body:Container(
+        child: Column(
+          children: [
+            ListTile(
+              title: Text('Hello,',
+                style: TextStyle(
+                  fontSize: 25,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
                 ),
-                Container(
-                    child: new RaisedButton(
-                      child: Text("Find Hospital"),
-                      padding: const EdgeInsets.all(40),
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Bookpage(),),);
+              ),
+            ),
+            ListTile(
+              title: Text('How Can We take care yourself?',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blueGrey,
+                ),
+              ),
+            ),
+
+            Container(
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      GestureDetector(
+                        onTap:(){
+                        Navigator.push(
+                           context,
+                           MaterialPageRoute(builder: (context) => Doctorpage()),
+                       );
                       },
-                    ),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            child: Row(
-              children: <Widget>[
-                Container(
-                  child: new RaisedButton(
-                    child: Text("Appointment"),
-                    padding: const EdgeInsets.all(40),
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Bookpage(),),);
-                    },
+                        child: Card(
+                         child: Container(
+                          child: Column(
+                            children: [
+                              ListTile(
+                                leading: Icon(Icons.account_circle,
+                                  color: Colors.white,
+                                  size: 40,),
+                              ),
+                              ListTile(
 
+                                title: Text("Find Doctor",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),),
+                                subtitle: Text("210 Doctors",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white60,
+                                  ),),
+                                contentPadding: const EdgeInsets.only(
+                                    top: 20, left: 15),
+                              )
+                            ],
+                          ),
+                          width: 150,
+                          height: 150,
+                        ),
+                        color: Colors.blue,
+                      ),
+                   ),
+                      Card(
+                        child: Container(
+                          child: Column(
+                            children: [
+                              ListTile(
+                                leading: Icon(Icons.account_balance,
+                                  color: Colors.white,
+                                  size: 40,),
+                              ),
+                              ListTile(
+                                title: Text("Find Hospital",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),),
+                                subtitle: Text("30 Hospital",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white60,
+                                  ),),
+                                contentPadding: const EdgeInsets.only(
+                                    top: 20, left: 15),
+                              )
+                            ],
+                          ),
+                          width: 150,
+                          height: 150,
+                        ),
+                        color: Colors.black54,
+                      ),
+                    ],
                   ),
-                  padding: const EdgeInsets.all(20),
-                ),
-                Container(
-                  child: new RaisedButton(
-                    child: Text("Drug List"),
-                    padding: const EdgeInsets.all(40),
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Bookpage(),),);
-                    },
+                  Row(
+                    children: [
+                      Card(
+                        child: Container(
+                          child: Column(
+                            children: [
+                              ListTile(
+                                leading: Icon(Icons.add_to_photos,
+                                  color: Colors.white,
+                                  size: 40,),
+                              ),
+                              ListTile(
+                                title: Text("Appointment",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),),
+                                subtitle: Text("50 Available",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white60,
+                                  ),),
+                                contentPadding: const EdgeInsets.only(
+                                    top: 20, left: 15),
+                              )
+                            ],
+                          ),
+                          width: 150,
+                          height: 150,
+                        ),
+                        color: Colors.black54,
+                      ),
+                      Card(
+                        child: Container(
+                          child: Column(
+                            children: [
+                              ListTile(
+                                leading: Icon(Icons.calendar_today,
+                                  color: Colors.white,
+                                  size: 40,),
+                              ),
+                              ListTile(
+                                title: Text("DrugList",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),),
+                                subtitle: Text("22 Services",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white60,
+                                  ),),
+                                contentPadding: const EdgeInsets.only(
+                                    top: 20, left: 15),
+                              )
+                            ],
+                          ),
+                          width: 150,
+                          height: 150,
+                        ),
+                        color: Colors.black54,
+                      ),
+                    ],
                   ),
-                ),
-              ],
+                ],
+              ),
+              padding: const EdgeInsets.all(27),
             ),
-          ),
-
-
-          //Image.network("https://thumbs.dreamstime.com/z/characterizing-male-silhouettes-different-stages-body-mass-index-characterizing-male-silhouettes-different-stages-160203321.jpg"),
-         // Image.network("https://img.freepik.com/free-vector/nutrition-facts-vector-package-labels-with-calories-ingredient-information_53562-8423.jpg?size=626&ext=jpg"),
-        ],
-
+          ],
+        ),
+        padding: const EdgeInsets.all(10),
+        color: Color.fromARGB(100, 255, 244, 214),
       ),
+
 
 
       drawer: Drawer(
