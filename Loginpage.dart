@@ -48,7 +48,7 @@ class Login_Session extends State<Loginpage>{
   Widget build(BuildContext context) {
     // TODO: implement build
      return Scaffold(
-       body: Column(
+       body: ListView(
          children: <Widget>[
            ClipPath(
              clipper: WaveClipperTwo(flip: true),
@@ -69,6 +69,7 @@ class Login_Session extends State<Loginpage>{
                fontSize: 30,
                  fontWeight: FontWeight.bold,
              ),
+              textAlign: TextAlign.center,
            ),
            TextField(
              controller: phoneController,
