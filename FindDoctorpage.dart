@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter22_app/AboutDoctor.dart';
 
 class FindDoctorpage extends StatefulWidget{
 
@@ -27,8 +28,23 @@ class FindDoctor_Session extends State<FindDoctorpage>{
        ),
        body: Column(
               children:[
-               Text('Find your desired Doctor',style:TextStyle(fontWeight: FontWeight.bold,fontSize: 40),),
-               Text("Categories",style:TextStyle(fontSize: 30),),
+                // Container(
+                //   child: Text('Search For Doctor'),
+                //   actions: <Widget>[
+                //     IconButton(icon: Icon(Icons.search),
+                //         onPressed: () {
+                //           showSearch(context: context);
+                //         })
+                //   ],
+                // )
+                ListTile(
+                  title: Text('Find your desired Doctor',style:TextStyle(fontWeight: FontWeight.bold,fontSize: 40),),
+                ),
+
+               ListTile(
+                 leading:  Text("Categories",style:TextStyle(fontSize: 30), textAlign: TextAlign.right),
+               ),
+
                 Row(
                   children: [
                    Container(
@@ -184,31 +200,81 @@ class FindDoctor_Session extends State<FindDoctorpage>{
                   ],
                 ),
                 Container(
-                  padding: const EdgeInsets.all(20),
-                  child:  Text("Top Doctors",textAlign:TextAlign.left,style:TextStyle(fontWeight: FontWeight.bold,fontSize: 30)),
+                  child: ListTile(
+                      leading:Text("Top Doctors",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),textAlign: TextAlign.left,)
+                  ),
+                  //padding: const EdgeInsets.all(20),
+                  //child:  Text("Top Doctors",textAlign:TextAlign.left,style:TextStyle(fontWeight: FontWeight.bold,fontSize: 30)),
                 ),
 
-               // Text("Top Doctors",textAlign:TextAlign.left,style:TextStyle(fontWeight: FontWeight.bold,fontSize: 30)),
-                ListTile(
-                   tileColor: Colors.black54,
-                   leading: Icon(Icons.person),
-                    title: Text("Dr.Stella Kane",),
-                   subtitle: Text("Heart Surgeon - Flower Hospital"),
-                  contentPadding: const EdgeInsets.all(10),
-                 ),
-                ListTile(
-                  tileColor: Colors.orangeAccent,
-                  leading: Icon(Icons.person),
-                  title: Text("Dr.Joseph Cart"),
-                  subtitle: Text("Dental Surgeon - Flower Hospital"),
-                  contentPadding: const EdgeInsets.all(10),
+                Container(
+                    padding: const EdgeInsets.all(10),
+                    child: Card(
+                      elevation: 20,
+                      child:Container(child:
+                          ListTile(
+                           leading:  CircleAvatar(radius:20,backgroundImage: AssetImage('assets/Images/Doct3.png',)),
+                            title: Text("Dr.Stella Kane",style: TextStyle(fontSize: 20),),
+                            subtitle: Text("Heart Surgeon - Flower Hospital",style: TextStyle(fontSize: 18)),
+                            onTap: (){
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => AboutDoctor()),
+                              );
+                            },
+                        ),
+
+                        height: MediaQuery.of(context).size.height*0.1,
+                        width:MediaQuery.of(context).size.width,
+
+                        decoration: BoxDecoration(
+                            color: Color(0XFFFFEBE3),
+                            borderRadius: BorderRadius.circular(15)
+                        ),
+                      ),
+                    )
                 ),
-                ListTile(
-                  tileColor: Colors.black54,
-                  leading: Icon(Icons.person),
-                  title: Text("Dr.Samatha"),
-                  subtitle: Text("Cardiology Surgeon - Flower Hospital"),
-                  contentPadding: const EdgeInsets.all(10),
+
+                Container(
+                  padding: const EdgeInsets.all(10),
+                    child: Card(
+                      elevation: 20,
+                      child:Container(child:
+                        ListTile(
+                          leading: CircleAvatar(radius:20,backgroundImage: AssetImage('assets/Images/Doct1.png',)),
+                          title: Text("Dr.Joseph Cart",style: TextStyle(fontSize: 20),),
+                          subtitle: Text("Dental Surgeon - Flower Hospital",style: TextStyle(fontSize: 18)),
+                         ),
+                         height: MediaQuery.of(context).size.height*0.1,
+                         width:MediaQuery.of(context).size.width,
+                         decoration: BoxDecoration(
+                            color: Color(0XFFE1BEE7),
+                            borderRadius: BorderRadius.circular(15)
+                        ),
+                      ),
+                    )
+                  //  padding: const EdgeInsets.all(10),
+                ),
+
+                Container(
+                    padding: const EdgeInsets.all(10),
+                    child: Card(
+                      elevation: 20,
+                      child:Container(child:
+                       ListTile(
+                        leading: CircleAvatar(radius:20,backgroundImage: AssetImage('assets/Images/Doct4.png',)),
+                        title: Text("Dr.Samatha",style: TextStyle(fontSize: 20),),
+                        subtitle:  Text("Cardiology Surgeon - Flower Hospital",style: TextStyle(fontSize: 18)),
+                      ),
+                        height: MediaQuery.of(context).size.height*0.1,
+                        width:MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                            color: Color(0XFFBBDEFB),
+                            borderRadius: BorderRadius.circular(15)
+                        ),
+                      ),
+                    )
+                  //  padding: const EdgeInsets.all(10),
                 ),
            ],
         ),
