@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter22_app/Homepage.dart';
 import 'package:flutter22_app/Registerpage.dart';
+import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -54,8 +57,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
  final emailController = TextEditingController();
  final passwordController = TextEditingController();
- var email;
- var password;
+
+ SharedPreferences logindata;
+ bool newuser;
 
  Future<void> _showMyDialog() async {
    return showDialog<void>(
@@ -86,6 +90,26 @@ class _MyHomePageState extends State<MyHomePage> {
    );
  }
   @override
+  void initState() {
+    // TODO: implement initState
+    check_if_already_login();
+  }
+ void check_if_already_login() async {
+   logindata = await SharedPreferences.getInstance();
+   newuser = (logindata.getBool('login') ?? true);
+   print(newuser);
+   if (newuser == false) {
+     Navigator.pushReplacement(
+         context, new MaterialPageRoute(builder: (context) => Homepage()));
+   }
+ }
+ @override
+ void dispose() {
+   // Clean up the controller when the widget is disposed.
+  emailController.dispose();
+   passwordController.dispose();
+   super.dispose();
+ }
   Widget build(BuildContext context) {
 
     return Scaffold(
@@ -103,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
          Colors.black45, Colors.black45,Colors.grey,
          Colors.white,
          ]),),
-       child: ListView(
+        child: ListView(
            children: <Widget>[
              Image.asset(
                'assets/Images/water1.png',
@@ -140,24 +164,29 @@ class _MyHomePageState extends State<MyHomePage> {
              ),
              Column(children: <Widget>[
                RaisedButton(
+                   child: Text(
+                       'LOGIN',
+                       style: TextStyle()),
                  onPressed: () {
-                   if(emailController.text=="text22@gmail.com" && passwordController.text=="arj22") {
-                     print("successfully");
-                     Navigator.push(
-                       context,
-                       MaterialPageRoute(builder: (context) => Homepage()),
-                     );
-                   }
-                    else
-                      {
-                        _showMyDialog();
-                      }
-                      print("Incorrect");
-                 },
-                 child: Text(
-                     'LOGIN',
-                     style: TextStyle()),
-                 ),
+                   setState(() {
+                       if (emailController.text == "text22@gmail.com" &&
+                          passwordController.text == "arj22")
+                         {
+                          print("successfully");
+                          logindata.setBool('login', false);
+                          logindata.setString('email', "text22@gmail.com");
+                          logindata.setString('password', "arj22");
+                          Navigator.push(
+                               context,
+                           MaterialPageRoute(builder: (context) => Homepage()),
+                    );
+                 }
+                 else {
+                     _showMyDialog();
+                     }
+                    print("Incorrect");
+               });
+                 })
               ],
              ),
        ],
