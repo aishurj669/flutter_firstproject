@@ -92,9 +92,9 @@ class Register_Session extends State<Registerpage>{
            obscureText: true,
           decoration: InputDecoration(
           hintText:"Enter your password",
+          ),
          ),
         ),
-       ),
           Column(
             children: <Widget>[
            RaisedButton(
