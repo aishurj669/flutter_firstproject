@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter22_app/Homepage.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
+
+
+
 
 class Loginpage extends StatefulWidget{
   @override
@@ -13,8 +17,10 @@ class Loginpage extends StatefulWidget{
 class Login_Session extends State<Loginpage>{
   final phoneController = TextEditingController();
   final passwordController = TextEditingController();
+
   var phone;
   var password;
+
 
   Future<void> _showMyDialog() async {
     return showDialog<void>(
@@ -45,6 +51,8 @@ class Login_Session extends State<Loginpage>{
     );
   }
   @override
+
+
   Widget build(BuildContext context) {
     // TODO: implement build
      return Scaffold(
@@ -69,7 +77,7 @@ class Login_Session extends State<Loginpage>{
                fontSize: 30,
                  fontWeight: FontWeight.bold,
              ),
-              textAlign: TextAlign.center,
+               textAlign: TextAlign.center,
            ),
            TextField(
              controller: phoneController,
