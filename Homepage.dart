@@ -1,8 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter22_app/Aboutuspage.dart';
 import 'package:flutter22_app/BMIpage.dart';
 import 'package:flutter22_app/Bookpage.dart';
 import 'package:flutter22_app/Doctorpage.dart';
+import 'package:flutter22_app/FindDoctorpage.dart';
+import 'package:flutter22_app/Loginpage.dart';
+import 'package:flutter22_app/main.dart';
 
 class Homepage extends StatefulWidget{
   @override
@@ -13,18 +17,34 @@ class Homepage extends StatefulWidget{
 
 }
 class Homepagescreen extends State<Homepage>{
+ // double myHeight = 0.0;
+//  double myWidth = 0.0;
   @override
   Widget build(BuildContext context) {
+   // this.myHeight = MediaQuery.of(context).size.height;
+   // this.myWidth = MediaQuery.of(context).size.width;
+    //MediaQueryData deviceInfo = MediaQuery.of(context);
+
+    //print('size: ${deviceInfo.size}');
+   // print('padding: ${deviceInfo.padding}');
     // TODO: implement build
+    //return Container( height: 400px, width: 200px );
+   // Size screenSize = MediaQuery.of(context).size;
+   // Orientation orientation = MediaQuery.of(context).orientation;
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Health Care"),
       ),
-      body:Container(
+      body: Container(
+       width: MediaQuery.of(context).size.width * 1.8,
+        height: MediaQuery.of(context).size.height * 1.8,
         child: Column(
           children: [
             ListTile(
-              title: Text('Hello,',
+              title: Text('Hello,\n',
+             // '[MediaQuery width]: ${screenSize.width.toStringAsFixed(2)}\n\n' +
+             // '[MediaQuery orientation]: $orientation',
                 style: TextStyle(
                   fontSize: 25,
                   color: Colors.black,
@@ -34,6 +54,8 @@ class Homepagescreen extends State<Homepage>{
             ),
             ListTile(
               title: Text('How Can We take care yourself?',
+            //'[MediaQuery width]: ${screenSize.width.toStringAsFixed(2)}\n\n' +
+            // '[MediaQuery orientation]: $orientation',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -51,12 +73,12 @@ class Homepagescreen extends State<Homepage>{
                         onTap:(){
                         Navigator.push(
                            context,
-                           MaterialPageRoute(builder: (context) => Doctorpage()),
+                           MaterialPageRoute(builder: (context) =>Doctorpage()),
                        );
                       },
                         child: Card(
-                         child: Container(
-                          child: Column(
+                          child: Container(
+                           child: Column(
                             children: [
                               ListTile(
                                 leading: Icon(Icons.account_circle,
@@ -66,11 +88,15 @@ class Homepagescreen extends State<Homepage>{
                               ListTile(
 
                                 title: Text("Find Doctor",
+                                  //  '[MediaQuery width]: ${screenSize.width.toStringAsFixed(2)}\n\n' +
+                                   // '[MediaQuery orientation]: $orientation',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white,
                                   ),),
                                 subtitle: Text("210 Doctors",
+                                    //'[MediaQuery width]: ${screenSize.width.toStringAsFixed(2)}\n\n' +
+                                    //'[MediaQuery orientation]: $orientation',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white60,
@@ -79,9 +105,9 @@ class Homepagescreen extends State<Homepage>{
                                     top: 20, left: 15),
                               )
                             ],
-                          ),
-                          width: 150,
-                          height: 150,
+                           ),
+                           width: 150,
+                           height: 150,
                         ),
                         color: Colors.blue,
                       ),
@@ -97,11 +123,15 @@ class Homepagescreen extends State<Homepage>{
                               ),
                               ListTile(
                                 title: Text("Find Hospital",
+                                    //'[MediaQuery width]: ${screenSize.width.toStringAsFixed(2)}\n\n' +
+                                   // '[MediaQuery orientation]: $orientation',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white,
                                   ),),
                                 subtitle: Text("30 Hospital",
+                                    //'[MediaQuery width]: ${screenSize.width.toStringAsFixed(2)}\n\n' +
+                                    //'[MediaQuery orientation]: $orientation',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white60,
@@ -131,11 +161,15 @@ class Homepagescreen extends State<Homepage>{
                               ),
                               ListTile(
                                 title: Text("Appointment",
+                                   // '[MediaQuery width]: ${screenSize.width.toStringAsFixed(2)}\n\n' +
+                                   // '[MediaQuery orientation]: $orientation',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white,
                                   ),),
                                 subtitle: Text("50 Available",
+                                   // '[MediaQuery width]: ${screenSize.width.toStringAsFixed(2)}\n\n' +
+                                    //'[MediaQuery orientation]: $orientation',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white60,
@@ -161,11 +195,15 @@ class Homepagescreen extends State<Homepage>{
                               ),
                               ListTile(
                                 title: Text("DrugList",
+                                  //  '[MediaQuery width]: ${screenSize.width.toStringAsFixed(2)}\n\n' +
+                                   // '[MediaQuery orientation]: $orientation',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white,
                                   ),),
                                 subtitle: Text("22 Services",
+                                   // '[MediaQuery width]: ${screenSize.width.toStringAsFixed(2)}\n\n' +
+                                   // '[MediaQuery orientation]: $orientation',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white60,
@@ -216,24 +254,48 @@ class Homepagescreen extends State<Homepage>{
                },
              ),
             ListTile(
-              title: Text("Caloris Calculation"),
-              leading: const Icon(Icons.anchor),
+              title: Text("Book your Session"),
+              leading: const Icon(Icons.book_online),
               onTap: (){
-
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Bookpage()),
+                );
+              },
+            ),
+            ListTile(
+              title: Text("Search your Doctor"),
+              leading: const Icon(Icons.search_off_outlined),
+              onTap: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) =>FindDoctorpage()),
+                );
               },
             ),
             ListTile(
               title: Text("About"),
               leading: const Icon(Icons.account_circle),
-              onTap: (){
-
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Aboutuspage()),
+                );
               },
             ),
-
+                ListTile(
+                  title: Text("Logout"),
+                  leading: const Icon(Icons.logout),
+                 onTap: (){
+                  Navigator.push(
+                           context,
+                    MaterialPageRoute(builder: (context) => Loginpage()),
+                  );
+              },
+            ),
           ],
         ),
       ),
     );
   }
-
 }
