@@ -35,61 +35,60 @@ class AboutDoctor_Session extends State<AboutDoctor>{
                trailing: Icon(Icons.call),
                title: Text("Dr. Stella Kane",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
               subtitle: Text("Heart Surgeon-Flower Hospital"),
-            ),
-
+             ),
            ),
             ListTile(
              trailing: Icon(Icons.mail),
-           ),
+            ),
            ListTile(
-            leading:Text("About Doctor",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),textAlign: TextAlign.left,)
+             leading:Text("About Doctor",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),textAlign: TextAlign.left,)
            ),
            ListTile(
              subtitle: Text("Dr.Stella is a Top most Heart surgeon in Flower Hospital. She has done over 100 successful surgeries within past 3 years."
             "She has achieved several awards for her wonderful contribution in her own field.",
              style: TextStyle(color: Colors.black,letterSpacing: 1.0),),
            ),
-           ListTile(
+            ListTile(
              leading:Text("UpComing Schedules",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
-           )
+            )
            ),
             Container(
              child: Card(
-             elevation: 20,
-              child:Container(child:
-               ListTile(
+              elevation: 20,
+               child:Container(child:
+                ListTile(
                  leading: Image.network("https://img.favpng.com/18/11/3/dyersburg-calendar-v7e-6l5-icon-png-favpng-fvgYGKfcSZcx3buZDnzer3uhw.jpg"),
-                title: Text("Consultation",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                 subtitle: Text("Monday 9am - 12pm"),
-              ),
-              height: MediaQuery.of(context).size.height*0.1,
-              width: MediaQuery.of(context).size.width,
-
-               decoration: BoxDecoration(
-               color: Color(0XFFFFEBE3),
-              borderRadius: BorderRadius.circular(15)
-            ),
-           ),
-          )
-          ),
-           Container(
-            child: Card(child:
-             Container(child:
-               ListTile(
-                leading: Image.network("https://img.favpng.com/18/11/3/dyersburg-calendar-v7e-6l5-icon-png-favpng-fvgYGKfcSZcx3buZDnzer3uhw.jpg"),
                  title: Text("Consultation",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                  subtitle: Text("Tuesday 9am - 12pm"),
-               ),
-                 height: MediaQuery.of(context).size.height*0.1,
-                 width:MediaQuery.of(context).size.width,
+                 subtitle: Text("Monday 9am - 12pm"),
+                ),
+                height: MediaQuery.of(context).size.height*0.1,
+                width: MediaQuery.of(context).size.width,
 
                 decoration: BoxDecoration(
-                color: Color(0XFFFCE4EC),
+                color: Color(0XFFFFEBE3),
                 borderRadius: BorderRadius.circular(15)
                 ),
                ),
-              )
-            ),
+             )
+           ),
+                Container(
+                  child: Card(child:
+                    Container(child:
+                      ListTile(
+                        leading: Image.network("https://img.favpng.com/18/11/3/dyersburg-calendar-v7e-6l5-icon-png-favpng-fvgYGKfcSZcx3buZDnzer3uhw.jpg"),
+                       title: Text("Consultation",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                        subtitle: Text("Tuesday 9am - 12pm"),
+                     ),
+                     height: MediaQuery.of(context).size.height*0.1,
+                     width:MediaQuery.of(context).size.width,
+
+                     decoration: BoxDecoration(
+                     color: Color(0XFFFCE4EC),
+                     borderRadius: BorderRadius.circular(15)
+                    ),
+                   ),
+                 )
+              ),
              Container(
                child: Card(child:
                  Container(child:
