@@ -61,6 +61,9 @@ class Aboutus_Session extends State<Aboutuspage>
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+      appBar: AppBar(
+        title: Text('About Us'),
+      ),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -69,17 +72,17 @@ class Aboutus_Session extends State<Aboutuspage>
 
               colors: [
                 Colors.white,
-                Colors.redAccent,
+                Colors.blueAccent,
                 // : Image.asset("assets/Images/unnamed.png"),
               ]),),
-        child: ListView(
+               child: ListView(
                 children: [
                   Image.asset('assets/Images/unnamed.png'),
-                Text("\n About Us..\n", style:TextStyle(fontWeight: FontWeight.bold,fontSize: 40)),
+                  Text("\n About Us..\n", style:TextStyle(fontWeight: FontWeight.bold,fontSize: 40)),
                   Text("SkyCliff IT is passionately built to excel in Quality, Value and Time driven Techno Commercial world.", style: TextStyle(fontSize: 20)),
                   Text("We Understand Customer Requirements and Time bound business commitments, thus, perform time critical process to deliver accurate results.\n",style: TextStyle(fontSize: 20)),
-              Row(
-                children: [
+                Row(
+                 children: [
                   RaisedButton(
                     onPressed:callaunch,
                       child: Icon(Icons.call),
@@ -116,8 +119,7 @@ class Aboutus_Session extends State<Aboutuspage>
                   ),
                 ],
               )
-         ],
-
+            ],
         ),
         padding: const EdgeInsets.all(10),
       ),
