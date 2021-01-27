@@ -51,7 +51,10 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MyHomePageState createState() {
+    print('1. createState()');
+    return _MyHomePageState();
+  }
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -91,6 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
  }
   @override
   void initState() {
+   print('2. Statement1');
     // TODO: implement initState
     check_if_already_login();
   }
@@ -103,14 +107,39 @@ class _MyHomePageState extends State<MyHomePage> {
          context, new MaterialPageRoute(builder: (context) => Homepage()));
    }
  }
+
+
+  @override
+   void didChangeDependencies(){
+    print('3. didChnageDependencies');
+    super.didChangeDependencies();
+ }
+
+@override
+void didUpdateWidget(covariant MyHomePage oldWidget) {
+   print('5. didUpdateWidget');
+    // TODO: implement didUpdateWidget
+    super.didUpdateWidget(oldWidget);
+  }
+
+ @override
+ void deactivate() {
+   print('7. deactivate');
+   // TODO: implement deactivate
+   super.deactivate();
+ }
+
  @override
  void dispose() {
+   print('8. dispose');
    // Clean up the controller when the widget is disposed.
   emailController.dispose();
    passwordController.dispose();
    super.dispose();
  }
+
   Widget build(BuildContext context) {
+   print('4.build');
 
     return Scaffold(
       bottomSheet: Text("Terms & Conditions",style: TextStyle(fontSize: 20)),
@@ -124,7 +153,7 @@ class _MyHomePageState extends State<MyHomePage> {
           end: Alignment.bottomLeft,
           stops: [0.7,0.7,0.7,1],
          colors: [
-         Colors.black45, Colors.black45,Colors.grey,
+         Color(0XFFBBDEFB), Color(0XFFE3F2FD),Colors.blueAccent,
          Colors.white,
          ]),),
         child: ListView(
@@ -146,6 +175,7 @@ class _MyHomePageState extends State<MyHomePage> {
               decoration: InputDecoration(
               hintText:"Enter your email",
            ),
+
           ),
         ),
           ListTile(
@@ -167,8 +197,10 @@ class _MyHomePageState extends State<MyHomePage> {
                    child: Text(
                        'LOGIN',
                        style: TextStyle()),
+                   color: Colors.blue,
                  onPressed: () {
                    setState(() {
+                     print('6. Statement');
                        if (emailController.text == "text22@gmail.com" &&
                           passwordController.text == "arj22")
                          {
@@ -193,6 +225,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       ),
       floatingActionButton: FloatingActionButton(
+
         onPressed: (){
           Navigator.push(
             context,
@@ -200,6 +233,7 @@ class _MyHomePageState extends State<MyHomePage> {
            );
          },
           child: Icon(Icons.add),
+       // backgroundColor: Colors.blue,
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
