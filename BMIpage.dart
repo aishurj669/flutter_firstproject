@@ -42,18 +42,29 @@ class BmipageSession extends State<Bmipage>{
       Scaffold(
         appBar: AppBar(
           title: Text("BMI"),
-          backgroundColor: Colors.deepOrange,
+          backgroundColor: Colors.blue,
         ),
-        body:
+        body:  Container(
+                   decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                 begin: Alignment.topRight,
+                 end: Alignment.bottomLeft,
 
-        ListView(
+                colors: [
+                 Colors.white,
+                Colors.blueAccent,
+               ]),),
+         child: ListView(
           children: <Widget>[
             Container(
-                child: Text("BMI",style:TextStyle(fontWeight: FontWeight.bold,fontSize:60),textAlign: TextAlign.center),
+               // child: Text("BMI",style:TextStyle(fontWeight: FontWeight.bold,fontSize:60),textAlign: TextAlign.center),
+              child: Image.asset("assets/Images/BMI2.png"),
+              height: 250,
+              width: 200,
             ),
 
             ListTile(
-              tileColor: Colors.pinkAccent,
+             //tileColor: Colors.pinkAccent,
               leading: const Icon(Icons.assessment_sharp),
               title:  TextField(
                 controller: heightController,
@@ -63,7 +74,7 @@ class BmipageSession extends State<Bmipage>{
               ),
             ),
             ListTile(
-              tileColor: Colors.pinkAccent,
+              //tileColor: Colors.pinkAccent,
               leading: const Icon(Icons.view_headline_sharp),
               title:  TextField(
                 controller: weightController,
@@ -77,10 +88,12 @@ class BmipageSession extends State<Bmipage>{
                 RaisedButton(
                   onPressed: getData,
                   child: Text("Calculate BMI",style: TextStyle(fontWeight: FontWeight.normal,fontSize: 25),),
+                  color: Colors.black54,
+                  textColor: Colors.white,
                 ),
               ],
             ),
-         Container(
+          Container(
            child:  Text("Your BMI Is  " + result.toString(),style: TextStyle(fontWeight: FontWeight.normal,fontSize: 20),textAlign: TextAlign.center),
              padding: const EdgeInsets.all(10),
          ),
@@ -88,16 +101,22 @@ class BmipageSession extends State<Bmipage>{
              child:  Text("Your BMI Status Is: " + status.toString(),style: TextStyle(fontWeight: FontWeight.normal,fontSize: 20),textAlign: TextAlign.center),
              padding: const EdgeInsets.all(10),
            ),
-           
-            RaisedButton(
-              child: Text("Go to BookSession"),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Bookpage()),
-                );
-              },
-            ),
+           Column(
+             children: [
+               RaisedButton(
+                 child: Text("Go to BookSession",style: TextStyle(fontWeight: FontWeight.normal,fontSize: 15),),
+                 color: Colors.black54,
+                 textColor: Colors.white,
+                 onPressed: () {
+                   Navigator.push(
+                     context,
+                     MaterialPageRoute(builder: (context) => Bookpage()),
+                   );
+                 },
+               ),
+             ],
+           )
+
           //RaisedButton(
                   //  child: Text('Show Snackbar'),
                 //  onPressed: () {
@@ -110,6 +129,7 @@ class BmipageSession extends State<Bmipage>{
 
           ],
 
+        ),
         ),
       );
   }
