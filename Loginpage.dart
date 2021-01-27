@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter22_app/Homepage.dart';
+import 'package:flutter22_app/main.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
 
 
 
 class Loginpage extends StatefulWidget{
+  get mounted => null;
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -107,7 +110,12 @@ class Login_Session extends State<Loginpage>{
                "Login",
             ),
             // icon:Icon(Icons.all_inclusive_sharp),
-             onPressed: () {},
+             onPressed: () {
+               Navigator.push(
+                 context,
+                 MaterialPageRoute(builder: (context) => Homepage()),
+               );
+             },
            ),
            FlatButton(
              onPressed: () {},
@@ -167,6 +175,32 @@ class Login_Session extends State<Loginpage>{
      );
   }
 }
+
+// class SnackBarWidget extends StatelessWidget {
+//
+//   showSnackBar(BuildContext context){
+//
+//     final snackBar = SnackBar(
+//       content: Text('Yay! A SnackBar Example!'),
+//       action: SnackBarAction(
+//         label: 'Undo',
+//         onPressed: () {
+//           // Put Your Code Here which you want to execute on Undo button Click.
+//         },
+//       ),
+//     );
+//     Scaffold.of(context).showSnackBar(snackBar);
+//   }
+//   @override
+//   Widget build(BuildContext context) {
+//     return Center(
+//       child: RaisedButton(
+//         onPressed: () {showSnackBar(context);},
+//         child: Text('Click Here To Show SnackBar'),
+//       ),
+//     );
+//   }
+// }
 
 
 
