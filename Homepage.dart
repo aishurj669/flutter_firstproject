@@ -6,22 +6,61 @@ import 'package:flutter22_app/Bookpage.dart';
 import 'package:flutter22_app/Doctorpage.dart';
 import 'package:flutter22_app/FindDoctorpage.dart';
 import 'package:flutter22_app/Loginpage.dart';
+import 'package:flutter22_app/Registerpage.dart';
 import 'package:flutter22_app/main.dart';
 
 class Homepage extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
+    print('1. createState()');
     // TODO: implement createState
     return Homepagescreen();
   }
 
 }
 class Homepagescreen extends State<Homepage>{
+
+  @override
+  void initState() {
+    print('1. Statement1');
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
+  void deactivate() {
+    print('7. deactivate');
+    // TODO: implement deactivate
+    super.deactivate();
+  }
+
+  @override
+  void didChangeDependencies() {
+    print('3. didChnageDependencies');
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+  }
+
+  @override
+  void didUpdateWidget(covariant Homepage oldWidget) {
+    print('5. didUpdateWidget');
+    // TODO: implement didUpdateWidget
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
+  void dispose() {
+    print('8. dispose');
+    // TODO: implement dispose
+    super.dispose();
+  }
  // double myHeight = 0.0;
 //  double myWidth = 0.0;
   @override
   Widget build(BuildContext context) {
-   // this.myHeight = MediaQuery.of(context).size.height;
+    print('4.build');
+
+    // this.myHeight = MediaQuery.of(context).size.height;
    // this.myWidth = MediaQuery.of(context).size.width;
     //MediaQueryData deviceInfo = MediaQuery.of(context);
 
@@ -71,11 +110,16 @@ class Homepagescreen extends State<Homepage>{
                     children: [
                       GestureDetector(
                         onTap:(){
-                        Navigator.push(
-                           context,
-                           MaterialPageRoute(builder: (context) =>Doctorpage()),
-                       );
-                      },
+                          setState(() {
+                            print('6. Statement');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Doctorpage()),
+                            );
+                           }
+                          );
+                       },
                         child: Card(
                           child: Container(
                            child: Column(
@@ -86,7 +130,6 @@ class Homepagescreen extends State<Homepage>{
                                   size: 40,),
                               ),
                               ListTile(
-
                                 title: Text("Find Doctor",
                                   //  '[MediaQuery width]: ${screenSize.width.toStringAsFixed(2)}\n\n' +
                                    // '[MediaQuery orientation]: $orientation',
@@ -244,6 +287,7 @@ class Homepagescreen extends State<Homepage>{
             ),
 
              ListTile(
+               //Color:Colors.blueAccent,
                title: Text("BMI Calculation"),
                leading: const Icon(Icons.accessibility_new_sharp),
                onTap: (){
@@ -253,6 +297,17 @@ class Homepagescreen extends State<Homepage>{
                  );
                },
              ),
+            ListTile(
+              //Color:Colors.blueAccent,
+              title: Text("Create Account"),
+              leading: const Icon(Icons.create),
+              onTap: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Registerpage()),
+                );
+              },
+            ),
             ListTile(
               title: Text("Book your Session"),
               leading: const Icon(Icons.book_online),
@@ -283,14 +338,14 @@ class Homepagescreen extends State<Homepage>{
                 );
               },
             ),
-                ListTile(
-                  title: Text("Logout"),
-                  leading: const Icon(Icons.logout),
-                 onTap: (){
-                  Navigator.push(
-                           context,
-                    MaterialPageRoute(builder: (context) => Loginpage()),
-                  );
+            ListTile(
+              title: Text("Logout"),
+              leading: const Icon(Icons.logout),
+              onTap: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Loginpage()),
+                );
               },
             ),
           ],
