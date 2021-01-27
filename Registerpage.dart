@@ -47,8 +47,8 @@ class Register_Session extends State<Registerpage>{
             height: 100,
           ),
 
-        Container(
-         child: Text("Register",style:TextStyle(fontWeight: FontWeight.bold,fontSize: 40),),
+         Container(
+          child: Text("Register",style:TextStyle(fontWeight: FontWeight.bold,fontSize: 40),),
           padding: const EdgeInsets.all(20),
         ),
            ListTile(
@@ -59,9 +59,7 @@ class Register_Session extends State<Registerpage>{
             decoration: InputDecoration(
             hintText:"Enter your FirstName",
            ),
-
             ),
-
         ),
            ListTile(
              //tileColor: Colors.cyan,
@@ -78,11 +76,11 @@ class Register_Session extends State<Registerpage>{
            //tileColor: Colors.cyan,
            leading: const Icon(Icons.attach_email),
            title:  TextField(
-         controller: emailController,
-         decoration: InputDecoration(
-         hintText:"Enter your email",
-         ),
-        ),
+           controller: emailController,
+           decoration: InputDecoration(
+           hintText:"Enter your email",
+           ),
+          ),
          ),
          ListTile(
           //tileColor: Colors.cyan,
@@ -103,14 +101,13 @@ class Register_Session extends State<Registerpage>{
                Navigator.push(
                  context,
                  MaterialPageRoute(builder: (context) => Homepage()),
-               );
-             },
-           ),
-         ],
-       )
-
-      ],
-     ),
+                );
+              },
+            ),
+          ],
+         )
+        ],
+       ),
       ),
     );
   }
