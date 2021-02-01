@@ -12,39 +12,44 @@ class FindDoctorpage extends StatefulWidget{
 }
 
 class FindDoctor_Session extends State<FindDoctorpage>{
+  final searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
 
      return Scaffold(
+       resizeToAvoidBottomInset: false,
        appBar: AppBar(
-         title: Text('Search For Doctor'),
-         actions: <Widget>[
-           IconButton(icon: Icon(Icons.search),
-               onPressed: () {
-                 showSearch(context: context);
-               })
-         ],
+         // title: Text('Search For Doctor'),
+         // actions: <Widget>[
+         //   IconButton(icon: Icon(Icons.search),
+         //       onPressed: () {
+         //         showSearch(context: context);
+         //       })
+         // ],
        ),
        body: Column(
               children:[
-                // Container(
-                //   child: Text('Search For Doctor'),
-                //   actions: <Widget>[
-                //     IconButton(icon: Icon(Icons.search),
-                //         onPressed: () {
-                //           showSearch(context: context);
-                //         })
-                //   ],
-                // )
                 ListTile(
                   title: Text('Find your desired Doctor',style:TextStyle(fontWeight: FontWeight.bold,fontSize: 40),),
                 ),
 
                ListTile(
-                 leading:  Text("Categories",style:TextStyle(fontSize: 30), textAlign: TextAlign.right),
+                 leading: TextField(
+                   controller: searchController,
+                   decoration: InputDecoration(
+                      // labelText: "Search",
+                       hintText: "Search for doctor",
+                       prefixIcon: Icon(Icons.search),
+                       border: OutlineInputBorder(
+                           borderRadius: BorderRadius.all(Radius.circular(25.0)))),
+                 ),
+                // trailing: Icon(Icons.search),
                ),
 
+               ListTile(
+                 leading:  Text("Categories",style:TextStyle(fontSize: 30), textAlign: TextAlign.right),
+               ),
                 Row(
                   children: [
                    Container(
@@ -59,14 +64,14 @@ class FindDoctor_Session extends State<FindDoctorpage>{
                                child: Column(
                                  children: [
                                    FractionalTranslation(
-                                     translation: Offset(0.5, -0.3),
+                                     translation: Offset(0.4, -0.1),
                                      child: Align(
                                        child: Container(
                                          height: 50,
                                          width: 50,
                                          child: Image.asset("assets/Images/teeth.png"),
                                          decoration: BoxDecoration(
-                                             color: Colors.blue,
+                                             color: Colors.white,
                                              borderRadius: BorderRadius.circular(10)
                                          ),
                                          padding: const EdgeInsets.only(left: 0),
@@ -92,30 +97,30 @@ class FindDoctor_Session extends State<FindDoctorpage>{
                              child: Column(
                                  children: [
                                  FractionalTranslation(
-                                 translation: Offset(0.5, -0.3),
+                                 translation: Offset(0.4, -0.1),
                                   child: Align(
                                    child: Container(
                                     height: 50,
                                      width: 50,
                                     child: Image.asset("assets/Images/heart.png"),
                                     decoration: BoxDecoration(
-                                     color: Colors.blue,
+                                     color: Colors.white,
                                      borderRadius: BorderRadius.circular(10)
+                                    ),
+                                    padding: const EdgeInsets.only(left: 0),
+                                   ),
+                                  ),
                                  ),
-                                 padding: const EdgeInsets.only(left: 0),
-                               ),
-                             ),
+                                   Container(
+                                     child: Text("Heart \n Sugeon",style: TextStyle(color: Colors.purple),),
+                                      padding: const EdgeInsets.only(top: 0, right: 20, left: 10),
+                                      margin: const EdgeInsets.only(top: 0, right: 0, left: 0),
+                                   ),
+                                 ],
+                             )
                            ),
-                              Container(
-                                child: Text("Heart \n Sugeon",style: TextStyle(color: Colors.purple),),
-                                padding: const EdgeInsets.only(top: 0, right: 20, left: 10),
-                                 margin: const EdgeInsets.only(top: 0, right: 0, left: 0),
-                              ),
-                            ],
-                           )
-                          ),
-                         padding: const EdgeInsets.only(left: 10),
-                        ),
+                          padding: const EdgeInsets.only(left: 10),
+                         ),
                            // color: Colors.blueAccent,
                            // height: 100,
                            // width: 70,
@@ -127,14 +132,14 @@ class FindDoctor_Session extends State<FindDoctorpage>{
                              child: Column(
                                children: [
                                  FractionalTranslation(
-                                   translation: Offset(0.5, -0.3),
+                                   translation: Offset(0.4, -0.1),
                                    child: Align(
                                      child: Container(
                                        height: 50,
                                        width: 50,
                                        child: Image.asset("assets/Images/eye.png"),
                                        decoration: BoxDecoration(
-                                           color: Colors.blue,
+                                           color: Colors.white,
                                            borderRadius: BorderRadius.circular(10)
                                        ),
                                        padding: const EdgeInsets.only(left: 0),
@@ -164,20 +169,20 @@ class FindDoctor_Session extends State<FindDoctorpage>{
                                child: Column(
                                  children: [
                                   FractionalTranslation(
-                                     translation: Offset(0.5, -0.3),
+                                     translation: Offset(0.4, -0.1),
                                      child: Align(
                                       child: Container(
                                        height: 50,
                                         width: 50,
-                                       child: Image.asset("assets/Images/cardiology.png"),
-                                       decoration: BoxDecoration(
-                                       color: Colors.blue,
-                                       borderRadius: BorderRadius.circular(10)
+                                        child: Image.asset("assets/Images/cardiology.png"),
+                                        decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(10)
+                                       ),
+                                       padding: const EdgeInsets.only(left: 0),
                                       ),
-                                     padding: const EdgeInsets.only(left: 0),
+                                    ),
                                   ),
-                                ),
-                               ),
                                 Container(
                                  child: Text("Cardiology \n Sugeon",style: TextStyle(color: Colors.purple),),
                                  padding: const EdgeInsets.only(top: 0, right: 20, left: 10),
@@ -186,13 +191,13 @@ class FindDoctor_Session extends State<FindDoctorpage>{
                          //   //  height: 100,
                           //  width: 60,
                             // margin: const EdgeInsets.all(20),
-                              ),
+                                  ),
                                  ],
-                             ),
-                           ),
-                         padding: const EdgeInsets.only(left: 10),
-                         ),
-                       ],
+                               ),
+                            ),
+                             padding: const EdgeInsets.only(left: 10),
+                          ),
+                        ],
                      ),
                     width: 400,
                      height: 100,
@@ -229,7 +234,7 @@ class FindDoctor_Session extends State<FindDoctorpage>{
 
                         decoration: BoxDecoration(
                             color: Color(0XFFFFEBE3),
-                            borderRadius: BorderRadius.circular(15)
+                            borderRadius: BorderRadius.circular(5)
                         ),
                       ),
                     )
@@ -249,7 +254,7 @@ class FindDoctor_Session extends State<FindDoctorpage>{
                          width:MediaQuery.of(context).size.width,
                          decoration: BoxDecoration(
                             color: Color(0XFFE1BEE7),
-                            borderRadius: BorderRadius.circular(15)
+                            borderRadius: BorderRadius.circular(5.0)
                         ),
                       ),
                     )
@@ -270,7 +275,7 @@ class FindDoctor_Session extends State<FindDoctorpage>{
                         width:MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
                             color: Color(0XFFBBDEFB),
-                            borderRadius: BorderRadius.circular(15)
+                            borderRadius: BorderRadius.circular(5)
                         ),
                       ),
                     )
